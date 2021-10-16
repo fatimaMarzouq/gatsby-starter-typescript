@@ -1,21 +1,62 @@
 import * as React from 'react'
-import { Link } from 'gatsby'
+import { Link, navigate } from 'gatsby'
+import { getUser, isLoggedIn, logout } from "../utils/auth"
 
+// import PrivateRoute from "../components/privateRoute"
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
+// import { login, logout, isAuthenticated, getProfile } from "../utils/auth"
+const IndexPage = () => {
 
-const IndexPage = () => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>Hi people</h1>
-        <p>Welcome to your new Gatsby site.</p>
-        <p>Now go build something great.</p>
-        <Link to="/page-2/">Go to page 2</Link>
-      </Container>
-    </Page>
-  </IndexLayout>
-)
+  // if (!isAuthenticated()) {
+  //   login()
+  //   return <p>Redirecting to login...</p>
+  // }
+
+  // const user = getProfile()
+
+  let greetingMessage = ""
+  if (isLoggedIn()) {
+    greetingMessage = `Hello ${getUser().name}`
+  } else {
+    greetingMessage = "You are not logged in"
+  }
+  return (
+
+    <IndexLayout>
+      <Page>
+        <Container>
+          <h1>Hello {isLoggedIn() ? getUser().name : "world"}!</h1>
+          <p>
+            {isLoggedIn() ? (
+              <>
+                You are logged in, so check your{" "}
+                <Link to="regularFetures">regular Does</Link>
+              </>
+            ) : (
+              <>
+                You should <Link to="signin">signin</Link> to see restricted
+                content
+              </>
+            )}
+          </p>
+
+          {isLoggedIn() ? (
+            <a
+              href="/"
+              onClick={event => {
+                event.preventDefault()
+                logout(() => navigate(`/logout`))
+              }}
+            >
+              Logout
+            </a>
+          ) : null}
+        </Container>
+      </Page>
+    </IndexLayout>
+  )
+}
 
 export default IndexPage
