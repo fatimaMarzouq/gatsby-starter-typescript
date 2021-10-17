@@ -22,7 +22,7 @@ const tokens = {
   expiresAt: 0,
 }
 
-let user = {}
+let user: any = {}
 
 export const isAuthenticated = () => {
   if (!isBrowser) {

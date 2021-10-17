@@ -46,7 +46,7 @@ const IndexPage = () => {
               Logout
             </a>
           ) : null} */}
-          {/* <p>Hi, {user.name ? user.name : "friend"}!</p> */}
+          <p>Hi, {user.name ? user.name : "friend"}!</p>
           <Link
             to="/logout"
             onClick={e => {
