@@ -11,7 +11,7 @@ const IndexPage = () => {
 
   const user = getProfile();
   console.log(user);
-  getRole().roles.forEach((element: any) => console.log(element));
+  // getRole().roles.forEach((element: any) => console.log(element));
   return (
 
     <IndexLayout>
@@ -22,8 +22,12 @@ const IndexPage = () => {
           {user.name ?
             <>
               You are logged in, so check your{" "}
-              { }
-              <Link to="regularFetures">regular Fetures</Link>
+              {getRole() == "regular" ?
+                <Link to="regularFetures">regular Fetures</Link>
+                : getRole() == "admin" ?
+                  <Link to="adminFetures">admin Fetures</Link>
+                  : null
+              }
               <br />
               <Link
                 to="/logout"
