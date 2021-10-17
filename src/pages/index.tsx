@@ -6,12 +6,11 @@ import { Link } from 'gatsby'
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
-import { logout, getProfile, getAuth } from "../utils/auth"
+import { logout, getProfile } from "../utils/auth"
 const IndexPage = () => {
 
   const user = getProfile();
   console.log(user);
-  console.log(getAuth());
   return (
 
     <IndexLayout>
@@ -22,6 +21,7 @@ const IndexPage = () => {
           {user.name ?
             <>
               You are logged in, so check your{" "}
+              {user['https://example.com/rules']}
               <Link to="regularFetures">regular Fetures</Link>
               <br />
               <Link
