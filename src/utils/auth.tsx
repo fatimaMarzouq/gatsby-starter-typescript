@@ -31,7 +31,11 @@ export const isAuthenticated = () => {
 
   return localStorage.getItem("isLoggedIn") === "true"
 }
+export const getAuth = () => {
 
+
+  return auth
+}
 export const login = () => {
   if (!isBrowser) {
     return

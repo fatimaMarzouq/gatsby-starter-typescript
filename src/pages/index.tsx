@@ -6,11 +6,12 @@ import { Link } from 'gatsby'
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
-import { logout, getProfile } from "../utils/auth"
+import { logout, getProfile, getAuth } from "../utils/auth"
 const IndexPage = () => {
 
   const user = getProfile();
   console.log(user);
+  console.log(getAuth());
   return (
 
     <IndexLayout>
