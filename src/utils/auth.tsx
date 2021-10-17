@@ -69,6 +69,9 @@ export const handleAuthentication = () => {
 export const getProfile = () => {
   return user
 }
+export const getRole = () => {
+  return user['https://rules.com/rules']
+}
 export const silentAuth = (callback: (() => any)) => {
   if (!isAuthenticated()) return callback()
   auth.checkSession({}, setSession(callback))

@@ -6,7 +6,7 @@ import { Link } from 'gatsby'
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
-import { logout, getProfile } from "../utils/auth"
+import { logout, getProfile, getRole } from "../utils/auth"
 const IndexPage = () => {
 
   const user = getProfile();
@@ -21,7 +21,7 @@ const IndexPage = () => {
           {user.name ?
             <>
               You are logged in, so check your{" "}
-              {user.roles.roles}
+              {getRole()}
               <Link to="regularFetures">regular Fetures</Link>
               <br />
               <Link
