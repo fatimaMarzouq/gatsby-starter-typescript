@@ -17,12 +17,11 @@ const adminFetures = () => {
     <IndexLayout>
       <Page>
         <Container>
-          <h1>Hi from admin Fetures page</h1>
-          <p>Hi, {user.name ? user.name : "friend"}!</p>
-          <p>Welcome to admin Fetures</p>
+          <h1>Hi, {user.name ? user.name : "friend"}!</h1>
+          <p>Welcome to Admin Fetures Page</p>
           <ul>
             <li>
-              <Link to="/adminDoes/">admin Does</Link>
+              Go to <Link to="/adminDoes/">Admin Does Page</Link>
             </li>
             <li>
               {/* {isLoggedIn() ? (
@@ -36,17 +35,17 @@ const adminFetures = () => {
                 Logout
               </Link>
             ) : null} */}
-              <>
-                <Link
-                  to="/logout"
-                  onClick={e => {
-                    logout()
-                    e.preventDefault()
-                  }}
-                >
-                  Log Out
-                </Link>
-              </>
+
+              <Link
+                to="/logout"
+                onClick={e => {
+                  logout()
+                  e.preventDefault()
+                }}
+              >
+                Log Out
+              </Link>
+
 
             </li>
           </ul>
