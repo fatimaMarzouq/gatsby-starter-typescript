@@ -21,7 +21,7 @@ const IndexPage = () => {
           {user.name ?
             <>
               You are logged in, so check your{" "}
-              {user['https://example.com/rules']}
+              {user.roles.roles}
               <Link to="regularFetures">regular Fetures</Link>
               <br />
               <Link
