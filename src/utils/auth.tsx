@@ -34,7 +34,7 @@ export const isAuthenticated = () => {
 export const getAuth = () => {
 
 
-  return auth
+  return auth0
 }
 export const login = () => {
   if (!isBrowser) {
