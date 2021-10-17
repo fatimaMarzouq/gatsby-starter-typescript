@@ -23,7 +23,7 @@ import IndexLayout from '../layouts'
 
 // export default signin
 import { navigate } from "gatsby"
-import { handleLogin, isLoggedIn } from "../utils/auth"
+import { handleLogin, isLoggedIn, getUser } from "../utils/auth"
 
 class signin extends React.Component {
   state = {
@@ -44,7 +44,12 @@ class signin extends React.Component {
 
   render() {
     if (isLoggedIn()) {
-      navigate(`/regularFetures`)
+      if (getUser().role == "admin") {
+        navigate(`/adminFetures`)
+      } else if (getUser().role == "regular") {
+        navigate(`/regularFetures`)
+      }
+
     }
 
     return (

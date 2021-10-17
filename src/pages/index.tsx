@@ -15,13 +15,6 @@ const IndexPage = () => {
   // }
 
   // const user = getProfile()
-
-  let greetingMessage = ""
-  if (isLoggedIn()) {
-    greetingMessage = `Hello ${getUser().name}`
-  } else {
-    greetingMessage = "You are not logged in"
-  }
   return (
 
     <IndexLayout>
