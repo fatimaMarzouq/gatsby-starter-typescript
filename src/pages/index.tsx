@@ -9,11 +9,6 @@ import IndexLayout from '../layouts'
 import { login, logout, isAuthenticated, getProfile } from "../utils/auth"
 const IndexPage = () => {
 
-  if (!isAuthenticated()) {
-    login()
-    return <p>Redirecting to login...</p>
-  }
-
   const user = getProfile()
   return (
 
@@ -46,16 +41,23 @@ const IndexPage = () => {
               Logout
             </a>
           ) : null} */}
-          <p>Hi, {user.name ? user.name : "friend"}!</p>
-          <Link
-            to="/logout"
-            onClick={e => {
-              logout()
-              e.preventDefault()
-            }}
-          >
-            Log Out
-          </Link>
+          <div>Hi, {user.name ? user.name : <p>friend, You should <Link to='signin'>signin</Link> to see restricted content!</p>}</div>
+          {user.name ?
+            <>
+              You are logged in, so check your{" "}
+              <Link to="regularFetures">regular Fetures</Link>
+              <Link
+                to="/logout"
+                onClick={e => {
+                  logout()
+                  e.preventDefault()
+                }}
+              >
+                Log Out
+              </Link>
+            </>
+            : null}
+
         </Container>
       </Page>
     </IndexLayout>

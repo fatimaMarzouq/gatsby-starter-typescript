@@ -9,11 +9,16 @@ import IndexLayout from '../layouts'
 
 const adminFetures = () => {
   const user = getProfile()
+  if (!isAuthenticated()) {
+    login()
+    return <p>Redirecting to login...</p>
+  }
   return (
     <IndexLayout>
       <Page>
         <Container>
           <h1>Hi from admin Fetures page</h1>
+          <p>Hi, {user.name ? user.name : "friend"}!</p>
           <p>Welcome to admin Fetures</p>
           <ul>
             <li>
@@ -32,7 +37,6 @@ const adminFetures = () => {
               </Link>
             ) : null} */}
               <>
-                <p>Hi, {user.name ? user.name : "friend"}!</p>
                 <Link
                   to="/logout"
                   onClick={e => {

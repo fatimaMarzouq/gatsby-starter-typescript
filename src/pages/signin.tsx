@@ -4,22 +4,30 @@ import * as React from 'react'
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
+import { login, logout, isAuthenticated, getProfile } from "../utils/auth"
 
-const signin = () => (
-  <IndexLayout>
-    <Page>
-      <Container>
-        <h1>Hi from signin page</h1>
+const signin = () => {
+  if (!isAuthenticated()) {
+    login()
+    return <p>Redirecting to login...</p>
+  }
+  return (
+    <IndexLayout>
+      <Page>
+        <Container>
+          {/* <h1>Hi from signin page</h1>
         <p>Welcome to signin</p>
         <form>
           <div><label>Username <input type="text" /></label></div><br />
           <div><label>Password <input type="password" /></label></div><br />
           <div><input type="submit" value="signin" /></div>
-        </form>
-      </Container>
-    </Page>
-  </IndexLayout>
-)
+        </form> */}
+
+        </Container>
+      </Page>
+    </IndexLayout>
+  )
+}
 
 export default signin
 // import { navigate } from "gatsby"
