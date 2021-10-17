@@ -1,5 +1,5 @@
 import * as React from 'react'
-import { Link, navigate } from 'gatsby'
+import { Link } from 'gatsby'
 // import { getUser, isLoggedIn, logout } from "../utils/auth"
 import { login, logout, isAuthenticated, getProfile } from "../utils/auth"
 
@@ -9,6 +9,10 @@ import IndexLayout from '../layouts'
 
 const regularDoes = () => {
   const user = getProfile()
+  if (!isAuthenticated()) {
+    login()
+    return <p>Redirecting to login...</p>
+  }
   return (
     <IndexLayout>
       <Page>

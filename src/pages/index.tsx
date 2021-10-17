@@ -1,12 +1,12 @@
 import * as React from 'react'
-import { Link, navigate } from 'gatsby'
+import { Link } from 'gatsby'
 // import { getUser, isLoggedIn, logout } from "../utils/auth"
 
 // import PrivateRoute from "../components/privateRoute"
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
-import { login, logout, isAuthenticated, getProfile } from "../utils/auth"
+import { logout, getProfile } from "../utils/auth"
 const IndexPage = () => {
 
   const user = getProfile()
@@ -15,33 +15,8 @@ const IndexPage = () => {
     <IndexLayout>
       <Page>
         <Container>
-          {/* <h1>Hello {isLoggedIn() ? getUser().name : "world"}!</h1>
-          <p>
-            {isLoggedIn() ? (
-              <>
-                You are logged in, so check your{" "}
-                <Link to="regularFetures">regular Does</Link>
-              </>
-            ) : (
-              <>
-                You should <Link to="signin">signin</Link> to see restricted
-                content
-              </>
-            )}
-          </p>
 
-          {isLoggedIn() ? (
-            <a
-              href="/"
-              onClick={event => {
-                event.preventDefault()
-                logout(() => navigate(`/logout`))
-              }}
-            >
-              Logout
-            </a>
-          ) : null} */}
-          <div>Hi, {user.name ? user.name : <p>friend, You should <Link to='signin'>signin</Link> to see restricted content!</p>}</div>
+          <div>Hi, {user.name ? user.name : <><p>friend, You should <Link to='signin'>signin</Link> to see restricted content!</p><p>Do not have account <a href="https://dev--i4eym-u.us.auth0.com/u/signup?state=hKFo2SBUUU9Sc3p3WmRBZ04wTFhkOTNhaldIZ2dzTzVaZGtQZ6Fur3VuaXZlcnNhbC1sb2dpbqN0aWTZIE1wNUpqc0pjN2UwRFZMT0RVenJGNzBubVZDTV9HbG1ko2NpZNkgQzR6S3FjZEdQemMyZEpvcUFUR1dWQUpNWDN0VjVOeEs">sign up</a></p></>}</div>
           {user.name ?
             <>
               You are logged in, so check your{" "}

@@ -4,7 +4,7 @@ import * as React from 'react'
 import Page from '../components/Page'
 import Container from '../components/Container'
 import IndexLayout from '../layouts'
-import { login, logout, isAuthenticated, getProfile } from "../utils/auth"
+import { login, isAuthenticated } from "../utils/auth"
 
 const signin = () => {
   if (!isAuthenticated()) {
