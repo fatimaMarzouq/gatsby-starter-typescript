@@ -70,7 +70,8 @@ export const getProfile = () => {
   return user
 }
 export const getRole = () => {
-  return user['https://rules.com/rules']
+  let role: any = [`https://rules.com/rules`]
+  return user.role
 }
 export const silentAuth = (callback: (() => any)) => {
   if (!isAuthenticated()) return callback()

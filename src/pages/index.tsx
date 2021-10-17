@@ -11,6 +11,7 @@ const IndexPage = () => {
 
   const user = getProfile();
   console.log(user);
+  getRole().roles.forEach((element: any) => console.log(element));
   return (
 
     <IndexLayout>
@@ -21,7 +22,7 @@ const IndexPage = () => {
           {user.name ?
             <>
               You are logged in, so check your{" "}
-              {getRole()}
+              { }
               <Link to="regularFetures">regular Fetures</Link>
               <br />
               <Link
